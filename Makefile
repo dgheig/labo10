@@ -16,31 +16,31 @@ OBJ = obj
 BUILDS = builds
 TESTS = tests
 
-# all: labo10 compile_tests
+all: labo10 compile_tests
 
-# main: labo10
+main: labo10
 
-# compile_tests: sumLine sumDiag shuffleMatrix vectMinSum
+compile_tests: # sumLine sumDiag shuffleMatrix vectMinSum
 
-# documentation:
-# 	mkdir -p doc && cd doc && mkdir -p doxy && doxygen Doxyfile && make -C doxy/latex && cp doxy/latex/refman.pdf doc.pdf
+documentation:
+	mkdir -p doc && cd doc && mkdir -p doxy && doxygen Doxyfile && make -C doxy/latex && cp doxy/latex/refman.pdf doc.pdf
 
-# build_dir:
-# 	mkdir -p $(BUILDS)
+build_dir:
+	mkdir -p $(BUILDS)
 
-# obj_dir:
-# 	mkdir -p $(OBJ)
+obj_dir:
+	mkdir -p $(OBJ)
 
-# setup: build_dir obj_dir
+setup: build_dir obj_dir
 
-# matrice.o: setup $(SRC)/matrice.h $(SRC)/matrice.cpp
-# 	$(COMPILE) -c $(SRC)/matrice.cpp -o $(OBJ)/matrice.o
+geometry.o: setup $(SRC)/geometry.h $(SRC)/geometry.cpp
+	$(COMPILE) -c $(SRC)/geometry.cpp -o $(OBJ)/geometry.o
 
-# labo10.o: setup labo_10_comte_emmanuelle_gallay_david.cpp
-# 	$(COMPILE) -c labo_10_comte_emmanuelle_gallay_david.cpp -o $(OBJ)/labo10.o
+labo10.o: setup labo_10_comte_emmanuelle_gallay_david.cpp
+	$(COMPILE) -c labo_10_comte_emmanuelle_gallay_david.cpp -o $(OBJ)/labo10.o
 
-# labo10: setup matrice.o labo10.o
-# 	$(COMPILE) $(SRC)/matrice.h $(OBJ)/matrice.o $(OBJ)/labo10.o -o $(BUILDS)/labo10
+labo10: setup geometry.o labo10.o
+	$(COMPILE) $(SRC)/geometry.h $(OBJ)/geometry.o $(OBJ)/labo10.o -o $(BUILDS)/labo10
 
 # # TESTS
 

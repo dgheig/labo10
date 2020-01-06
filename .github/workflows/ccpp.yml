@@ -2,19 +2,19 @@ name: C/C++ CI
 
 on: [push]
 
-# jobs:
-#   build:
+jobs:
+  build:
 
-#     runs-on: ubuntu-latest
+    runs-on: ubuntu-latest
 
-#     steps:
-#     - uses: actions/checkout@master
+    steps:
+    - uses: actions/checkout@master
 
-#     - name: compile labo10
-#       run: make labo10
+    - name: compile labo10
+      run: make labo10
 
-#     - name: run labo10
-#       run: ./builds/labo10  <<< "\n" # to finish the process
+    - name: run labo10
+      run: ./builds/labo10  <<< "\n" # to finish the process
 
 #   tests:
 

@@ -7,9 +7,19 @@ enum Point {
     EMPTY,
     EXIST
 };
-typedef std::vector<Point> axeZ;
-typedef std::vector<axeZ> axeY;
-typedef std::vector<axeY> axeX;
 
+enum MapCode {
+    XY,
+    XZ,
+    YZ
+};
+
+typedef std::vector<Point> Line;
+typedef std::vector<Line> Map;
+typedef std::vector<Map> Space;
+
+void displayMap(const Map& map);
+void fillSpace(Space& space);
+Map projection(const Space& space, MapCode code);
 
 #endif // GEOMETRY_H
