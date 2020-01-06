@@ -1,0 +1,36 @@
+name: C/C++ CI
+
+on: [push]
+
+# jobs:
+#   build:
+
+#     runs-on: ubuntu-latest
+
+#     steps:
+#     - uses: actions/checkout@master
+
+#     - name: compile labo10
+#       run: make labo10
+
+#     - name: run labo10
+#       run: ./builds/labo10  <<< "\n" # to finish the process
+
+#   tests:
+
+#     runs-on: ubuntu-latest
+
+#     steps:
+#     - uses: actions/checkout@master
+
+#     - name: compile tests
+#       run: make compile_tests
+
+#     - name: test sumLine
+#       run: ./builds/sumLine
+
+#     - name: test sumDiag
+#       run: ./builds/sumDiag
+
+#     - name: test shuffleMatrix
+#       run: ./builds/shuffleMatrix
