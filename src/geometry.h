@@ -3,10 +3,9 @@
 
 #include <vector>
 
-typedef bool Point;
 enum Point {
-   EMPTY,
-   EXIST
+    EMPTY,
+    EXIST
 };
 typedef std::vector<Point> axeZ;
 typedef std::vector<axeZ> axeY;
