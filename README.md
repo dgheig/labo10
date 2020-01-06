@@ -8,6 +8,6 @@
 English
 
 ## Naming Conventions
-* Variables:
-* Functions:
+* Variables: camelCase
+* Functions: camelCase
 * Constants: SCREAMING_SNAKE_CASE
