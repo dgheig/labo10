@@ -54,15 +54,16 @@ int getNbrPoints()
     {
         cout << "Please, enter the number of points you want : ";
         cin >> nbrPoints;
-        
+        cout << endl;
+
         inputOK = cin.good();
-        valueOK = nbrPoints < 0;
+        valueOK = nbrPoints >= 0;
         if(!inputOK)
             cin.clear();
         EMPTY_BUFFER;
-        
-    } while((!inputOK or !valueOK) and cout << "Incorrect input, please try again\n");
-    
+
+    } while((!inputOK or !valueOK)); // and cout << "Incorrect input, please try again\n"
+
     return nbrPoints;
 }
 
@@ -70,13 +71,14 @@ bool getPoint(int& x, int& y, int& z)
 {
     cout << "Please, enter a point [X Y Z] : ";
     cin >> x >> y >> z;
+    cout << endl;
     bool inputOK  = cin.good();
-    bool valuesOK = x < 0 or y < 0 or z < 0;
-   
+    bool valuesOK = x >= 0 or y >= 0 or z >= 0;
+
     if(!inputOK)
         cin.clear();
     EMPTY_BUFFER;
-    
+
     return (inputOK or valuesOK);
 }
 
@@ -97,7 +99,7 @@ PointList getPointList()
         list[i][1] = y;
         list[i][2] = z;
     }
-    
+
     return list;
 }
 
@@ -130,6 +132,9 @@ void fillSpace(Space& space, PointList list)
 
 
 Space getSpace(PointList list) {
+
+    cout << "getting space" << endl;
+
     size_t max_x = 0;
     size_t max_y = 0;
     size_t max_z = 0;
@@ -139,7 +144,11 @@ Space getSpace(PointList list) {
         if (getZ(point) > max_z) max_z = getZ(point);
     }
 
+    cout << "max dimension has been found" << endl;
+
     Space space = initSpace(max_x, max_y, max_z);
+
+    cout << "space has been init" << endl;
 
     for(const auto& point: list) {
         size_t x = (size_t) getX(point);
@@ -150,6 +159,8 @@ Space getSpace(PointList list) {
         space[MAPCODE_YZ][y][z] = EXIST;
         space[MAPCODE_XZ][x][z] = EXIST;
     }
+
+    cout << "projections have been done" << endl;
 
     return space;
 }
