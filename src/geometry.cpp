@@ -145,8 +145,11 @@ Space getSpace(PointList list) {
     }
 
     cout << "max dimension has been found" << endl;
+    cout << max_x << endl;
+    cout << max_y << endl;
+    cout << max_z << endl;
 
-    Space space = initSpace(max_x, max_y, max_z);
+    Space space = initSpace(max_x + 1, max_y + 1, max_z + 1);
 
     cout << "space has been init" << endl;
 

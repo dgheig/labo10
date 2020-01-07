@@ -31,6 +31,7 @@ int main() {
 
     for(const auto& map: space) {
         displayMap(map);
+        cout << endl;
     }
 
     WAIT_ENTER;
