@@ -11,3 +11,4 @@ English
 * Variables: camelCase
 * Functions: camelCase
 * Constants: SCREAMING_SNAKE_CASE
+* Type alias: PascalCase

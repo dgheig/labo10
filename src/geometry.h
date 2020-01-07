@@ -3,7 +3,7 @@
 
 #include <vector>
 
-enum Point {
+enum PointState {
     EMPTY,
     EXIST
 };
@@ -14,12 +14,16 @@ enum MapCode {
     YZ
 };
 
-typedef std::vector<Point> Line;
+typedef size_t Coordinate;
+typedef std::vector<Coordinate> Point;
+typedef std::vector<Point> PointList;
+
+typedef std::vector<PointState> Line;
 typedef std::vector<Line> Map;
 typedef std::vector<Map> Space;
 
 void displayMap(const Map& map);
-void fillSpace(Space& space);
+void fillSpace(Space& space, PointList list);
 Map projection(const Space& space, MapCode code);
 
 #endif // GEOMETRY_H
