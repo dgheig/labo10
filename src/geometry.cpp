@@ -3,6 +3,9 @@
 #include <iostream>
 using namespace std;
 
+bool addPointState(Space space, size_t x, size_t y, size_t z);
+
+
 bool addPointState(Space space, size_t x, size_t y, size_t z) {
     bool alreadySet = space[x][y][z] == EXIST ? true : false;
     space[x][y][z] = EXIST;

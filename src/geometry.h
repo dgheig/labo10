@@ -22,6 +22,7 @@ typedef std::vector<PointState> Line;
 typedef std::vector<Line> Map;
 typedef std::vector<Map> Space;
 
+void displayLine(const Line& line);
 void displayMap(const Map& map);
 void fillSpace(Space& space, PointList list);
 Map projection(const Space& space, MapCode code);
