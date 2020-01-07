@@ -1,5 +1,7 @@
 
 #include "geometry.h"
+#include <iostream>
+using namespace std;
 
 bool addPointState(Space space, size_t x, size_t y, size_t z) {
     bool alreadySet = space[x][y][z] == EXIST ? true : false;
@@ -7,10 +9,22 @@ bool addPointState(Space space, size_t x, size_t y, size_t z) {
     return alreadySet;
 }
 
-
 void displayMap(const Map& map)
 {
+    for(size_t i = 0; i < map.size(); ++i)
+    {
+        displayLine(map[i]);
+        cout << endl;
+    }
 
+}
+
+void displayLine(const Line& line)
+{
+    for(size_t i = 0; i < line.size(); ++i)
+    {
+        cout << (line[i] == EXIST ? 'O': '.');
+    }
 }
 
 void fillSpace(Space& space, PointList list)
@@ -30,5 +44,5 @@ void fillSpace(Space& space, PointList list)
 
 Map projection(const Space& space, MapCode code)
 {
-    return Map();
+    return space[code];
 }
