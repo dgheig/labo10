@@ -28,4 +28,9 @@ Space getSpace(PointList list);
 void fillSpace(Space& space, PointList list);
 Map projection(const Space& space, MapCode code);
 
+
+Coordinate getX(Point point);
+Coordinate getY(Point point);
+Coordinate getZ(Point point);
+
 #endif // GEOMETRY_H

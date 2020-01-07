@@ -5,15 +5,12 @@ using namespace std;
 
 bool addPointState(Space space, size_t x, size_t y, size_t z);
 Space initSpace(Coordinate max_x, Coordinate max_y, Coordinate max_z);
-Coordinate getX(Point point);
-Coordinate getY(Point point);
-Coordinate getZ(Point point);
 
-bool addPointState(Space space, size_t x, size_t y, size_t z) {
-    bool alreadySet = space[x][y][z] == EXIST ? true : false;
-    space[x][y][z] = EXIST;
-    return alreadySet;
-}
+// bool addPointState(Space space, size_t x, size_t y, size_t z) {
+//     bool alreadySet = space[x][y][z] == EXIST ? true : false;
+//     space[x][y][z] = EXIST;
+//     return alreadySet;
+// }
 
 Map initMap(size_t height, size_t width) {
     Map map(height);
@@ -32,7 +29,6 @@ Space initSpace(Coordinate max_x, Coordinate max_y, Coordinate max_z) {
 
     return space;
 }
-
 
 Coordinate getX(Point point) {
     if (point.size() > 0) return point[0];
