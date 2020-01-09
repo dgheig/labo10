@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/media/DATA/Windows/HEIG/Bachelor1/INF1/labos/labo10/labo_10_comte_emmanuelle_gallay_david.cpp
+iostream
+-
+cstdlib
+-
+src/geometry.h
+/media/DATA/Windows/HEIG/Bachelor1/INF1/labos/labo10/src/geometry.h
+
+/media/DATA/Windows/HEIG/Bachelor1/INF1/labos/labo10/src/geometry.h
+vector
+-
+
