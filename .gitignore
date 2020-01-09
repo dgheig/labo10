@@ -4,4 +4,3 @@ builds/*
 doc/doxy/latex/*
 nbproject
 obj
-Makefile
