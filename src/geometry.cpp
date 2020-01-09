@@ -6,8 +6,29 @@ using namespace std;
 #define EMPTY_BUFFER while(getchar() != '\n')
 
 bool addPointState(Space space, size_t x, size_t y, size_t z);
+
+/**
+  * @brief  Reseve the place for the projections and set all to EMPTY
+  * @param  [in] Coordinate max_x The maximum coordinate X of all the points in the space
+  * @param  [in] Coordinate max_z The maximum coordinate Y of all the points in the space
+  * @param  [in] Coordinate max_y The maximum coordinate Z of all the points in the space
+  * @return Space The place for the projections
+  */
 Space initSpace(Coordinate max_x, Coordinate max_y, Coordinate max_z);
+
+/**
+  * @brief  Get a point from the user
+  * @param  [in][out] int& x 
+  * @param  [in][out] int& y 
+  * @param  [in][out] int& z 
+  * @return bool True if the input is correct
+  */
 bool getPoint(int& x, int& y, int& z);
+
+/**
+  * @brief  Get the number of point the user want to set at EXIST
+  * @return int The number of points desired
+  */
 int getNbrPoints();
 
 // bool addPointState(Space space, size_t x, size_t y, size_t z) {
@@ -111,14 +132,6 @@ void displayLine(const Line& line) {
     }
 }
 
-void fillSpace(Space& space, PointList list) {
-    for (auto point: list) {
-        space[MAPCODE_XY][getX(point)][getY(point)] = EXIST;
-        space[MAPCODE_YZ][getY(point)][getZ(point)] = EXIST;
-        space[MAPCODE_XZ][getX(point)][getZ(point)] = EXIST;
-    }
-}
-
 
 Space getSpace(PointList list) {
 
@@ -142,22 +155,45 @@ Space getSpace(PointList list) {
 
     cout << "space has been init" << endl;
 
-    for(const auto& point: list) {
-        size_t x = (size_t) getX(point);
-        size_t y = (size_t) getY(point);
-        size_t z = (size_t) getZ(point);
-
-        space[MAPCODE_XY][x][y] = EXIST;
-        space[MAPCODE_YZ][y][z] = EXIST;
-        space[MAPCODE_XZ][x][z] = EXIST;
-    }
-
+    for(const auto& point: list) 
+        addPoint(point, space);
+    
     cout << "projections have been done" << endl;
 
     return space;
 }
 
-Map projection(const Space& space, MapCode code)
+void project(Point point, Map& map, MapCode code) {
+    switch (code) {
+        case MAPCODE_XY :
+            map[getX(point)][getY(point)] = EXIST;
+            cout << "map size " << map.size() << " " << map[0].size() << endl;
+            cout << "point " << getX(point) <<  " " << getY(point) << endl;
+            break;
+        case MAPCODE_XZ :
+            map[getX(point)][getZ(point)] = EXIST;
+            cout << "map size " << map.size() << " " << map[0].size() << endl;
+            cout << "point " << getX(point) <<  " " << getZ(point) << endl;
+            break;
+        case MAPCODE_YZ :
+            map[getY(point)][getZ(point)] = EXIST;
+            cout << "map size " << map.size() << " " << map[0].size() << endl;
+            cout << "point " << getY(point) <<  " " << getZ(point) << endl;
+            break;
+    }
+}
+
+void addPoint(Point point, Space& space) {
+    cout << "1\n";
+    project(point, space[MAPCODE_XY], MAPCODE_XY);
+    cout << "2\n";
+    project(point, space[MAPCODE_XZ], MAPCODE_XZ);
+    cout << "3\n";
+    project(point, space[MAPCODE_YZ], MAPCODE_YZ);
+    cout << "4\n";
+}
+
+Map getProjection(const Space& space, MapCode code)
 {
     return space[code];
 }
