@@ -7,6 +7,8 @@ using namespace std;
 
 bool addPointState(Space space, size_t x, size_t y, size_t z);
 Space initSpace(Coordinate max_x, Coordinate max_y, Coordinate max_z);
+bool getPoint(int& x, int& y, int& z);
+int getNbrPoints();
 
 // bool addPointState(Space space, size_t x, size_t y, size_t z) {
 //     bool alreadySet = space[x][y][z] == EXIST ? true : false;
