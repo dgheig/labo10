@@ -98,8 +98,8 @@ PointList getPointList() {
 }
 
 void displayMap(const Map& map) {
-    for(size_t i = 0; i < map.size(); ++i) {
-        displayLine(map[i]);
+    for(Line line: map) {
+        displayLine(line);
         cout << endl;
     }
 
