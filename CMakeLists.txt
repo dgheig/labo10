@@ -3,6 +3,10 @@ cmake_minimum_required(VERSION 3.10)
 
 project(Labo10)
 
+# file(MAKE_DIRECTORY ${directory})
+file(MAKE_DIRECTORY builds)
+set(RUNTIME_OUTPUT_DIRECTORY /builds)
+
 ############################################################
 # Create a library
 ############################################################
