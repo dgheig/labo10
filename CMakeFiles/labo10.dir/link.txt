@@ -1,0 +1,1 @@
+/usr/bin/c++     CMakeFiles/labo10.dir/labo_10_comte_emmanuelle_gallay_david.cpp.o  -o labo10 libgeometry_library.a 

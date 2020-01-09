@@ -1,0 +1,4 @@
+/media/DATA/Windows/HEIG/Bachelor1/INF1/labos/labo10/CMakeFiles/edit_cache.dir
+/media/DATA/Windows/HEIG/Bachelor1/INF1/labos/labo10/CMakeFiles/rebuild_cache.dir
+/media/DATA/Windows/HEIG/Bachelor1/INF1/labos/labo10/CMakeFiles/geometry_library.dir
+/media/DATA/Windows/HEIG/Bachelor1/INF1/labos/labo10/CMakeFiles/labo10.dir
