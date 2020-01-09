@@ -124,16 +124,16 @@ PointList getPointList() {
     PointList list;
     int nbrPoints = getNbrPoints();
     list.resize(nbrPoints);
-    for(int i = 0; i < nbrPoints; ++i) {
-        list[i].resize(3);
+    for(Point point: list) {
+        point.resize(3);
         int x, y, z;
         while(!getPoint(x, y, z));
 
-        list[i][0] = x;
-        list[i][1] = y;
-        list[i][2] = z;
+        point[0] = x;
+        point[1] = y;
+        point[2] = z;
     }
-
+    cout << endl;
     return list;
 }
 
