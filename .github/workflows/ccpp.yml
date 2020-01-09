@@ -26,10 +26,10 @@ jobs:
       run: make cmake
 
     - name: run labo10 with inputs1
-      run: ../bin/labo10 < ../tests/inputs/inputs1.txt
+      run: ./bin/labo10 < tests/inputs/inputs1.txt
 
     - name: run labo10 with inputs2
-      run: ../bin/labo10 < ../tests/inputs/inputs2.txt
+      run: ./bin/labo10 < tests/inputs/inputs2.txt
 
 #   tests:
 
