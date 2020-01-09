@@ -24,10 +24,8 @@ using namespace std;
 int main() {
 
     PointList list = getPointList();
-    cout << "List has been filled" << endl;
 
     Space space = getSpace(list);
-    cout << "Space has been filled" << endl;
 
     for(const auto& map: space) {
         displayMap(map);

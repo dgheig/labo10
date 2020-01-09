@@ -74,6 +74,9 @@ int getNbrPoints() {
         if(!inputOK) cin.clear();
         EMPTY_BUFFER;
 
+        if(!valueOK or !inputOK)
+            cout << "Incorrect input, please try again\n";
+        
     } while((!inputOK or !valueOK));
 
     return nbrPoints;
@@ -82,14 +85,17 @@ int getNbrPoints() {
 bool getPoint(int& x, int& y, int& z)   {
     cout << "Please, enter a point [X Y Z] : ";
     cin >> x >> y >> z;
-    cout << endl;
+ 
     bool inputOK  = cin.good();
     bool valuesOK = x >= 0 or y >= 0 or z >= 0;
 
     if(!inputOK) cin.clear();
     EMPTY_BUFFER;
 
-    return (inputOK or valuesOK);
+    if(!valuesOK or !inputOK)
+        cout << "Incorrect input, please try again\n";
+    
+    return (inputOK and valuesOK);
 }
 
 PointList getPointList() {
@@ -99,8 +105,7 @@ PointList getPointList() {
     for(int i = 0; i < nbrPoints; ++i) {
         list[i].resize(3);
         int x, y, z;
-        while(!getPoint(x, y, z))
-            cout << "Incorrect input, please try again\n";
+        while(!getPoint(x, y, z));
 
         list[i][0] = x;
         list[i][1] = y;
@@ -119,8 +124,8 @@ void displayMap(const Map& map) {
 }
 
 void displayLine(const Line& line) {
-    for(size_t i = 0; i < line.size(); ++i) {
-        cout << (line[i] == EXIST ? 'O': '.');
+    for(auto point: line) {
+        cout << (point == EXIST ? 'O': '.');
     }
 }
 
