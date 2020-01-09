@@ -14,8 +14,8 @@ enum MapCode {
     MAPCODE_YZ
 };
 
-typedef std::size_t Coordinate;
-typedef std::vector<Coordinate> Point;
+typedef std::size_t Coordonate;
+typedef std::vector<Coordonate> Point;
 typedef std::vector<Point> PointList;
 
 typedef std::vector<PointState> Line;
@@ -30,13 +30,13 @@ PointList getPointList();
 
 /**
   * @brief  Display a line
-  * @param  [in] const Line& line  
+  * @param  [in] const Line& line
   */
 void displayLine(const Line& line);
 
 /**
   * @brief  Display a map
-  * @param  [in] const Map& map 
+  * @param  [in] const Map& map
   */
 void displayMap(const Map& map);
 
@@ -62,32 +62,50 @@ void project(PointList list, Map& map, MapCode code);
   */
 void addPoint(Point point, Space& space);
 /**
-  * @brief  
-  * @param  [in] const Space& space 
+  * @brief
+  * @param  [in] const Space& space
   * @param  [in] MapCode      code  The code for the direction of the projection
   * @return Map The map of the projection asked
   */
 Map getProjection(const Space& space, MapCode code);
 
 /**
-  * @brief  Get the coordinate X from a point
-  * @param  [in] Point point  
-  * @return Coodrinate The coordinate X of the point
+  * @brief  Get the Coordonate X from a point
+  * @param  [in] Point point
+  * @return Coordonate The Coordonate X of the point
   */
-Coordinate getX(Point point);
+Coordonate getX(const Point& point);
 
 /**
-  * @brief  Get the coordinate Y from a point
-  * @param  [in] Point point 
-  * @return Coodrinate The coordinate Y of the point
+  * @brief  Get the Coordonate Y from a point
+  * @param  [in] Point point
+  * @return Coordonate The Coordonate Y of the point
   */
-Coordinate getY(Point point);
+Coordonate getY(const Point& point);
 
 /**
-  * @brief  Get the coordinate Z from a point
-  * @param  [in] Point point 
-  * @return Coodrinate The coordinate Z of the point
+  * @brief  Get the Coordonate Z from a point
+  * @param  [in] Point point
+  * @return Coordonate The Coordonate Z of the point
   */
-Coordinate getZ(Point point);
+Coordonate getZ(const Point& point);
+
+/**
+  * @brief  Set the Coordonate X from a point
+  * @param  [in] Point point
+  */
+void setX(Point& point, Coordonate value);
+
+/**
+  * @brief  Get the Coordonate Y from a point
+  * @param  [in] Point point
+  */
+void setY(Point& point, Coordonate value);
+
+/**
+  * @brief  Get the Coordonate Z from a point
+  * @param  [in] Point point
+  */
+void setZ(Point& point, Coordonate value);
 
 #endif // GEOMETRY_H

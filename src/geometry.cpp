@@ -7,12 +7,12 @@ using namespace std;
 
 /**
   * @brief  Reseve the place for the projections and set all to EMPTY
-  * @param  [in] Coordinate max_x The maximum coordinate X of all the points in the space
-  * @param  [in] Coordinate max_z The maximum coordinate Y of all the points in the space
-  * @param  [in] Coordinate max_y The maximum coordinate Z of all the points in the space
+  * @param  [in] Coordonate max_x The maximum Coordonate X of all the points in the space
+  * @param  [in] Coordonate max_z The maximum Coordonate Y of all the points in the space
+  * @param  [in] Coordonate max_y The maximum Coordonate Z of all the points in the space
   * @return Space The place for the projections
   */
-Space initSpace(Coordinate max_x, Coordinate max_y, Coordinate max_z);
+Space initSpace(Coordonate max_x, Coordonate max_y, Coordonate max_z);
 
 /**
   * @brief  Get a point from the user
@@ -38,7 +38,7 @@ Map initMap(size_t height, size_t width) {
     return map;
 }
 
-Space initSpace(Coordinate max_x, Coordinate max_y, Coordinate max_z) {
+Space initSpace(Coordonate max_x, Coordonate max_y, Coordonate max_z) {
     Space space(3);
     space[MAPCODE_XY] = initMap(max_x, max_y);
     space[MAPCODE_YZ] = initMap(max_y, max_z);
@@ -47,19 +47,41 @@ Space initSpace(Coordinate max_x, Coordinate max_y, Coordinate max_z) {
     return space;
 }
 
-Coordinate getX(Point point) {
+Coordonate getX(const Point& point) {
     if (point.size() > 0) return point[0];
     return 0;
 }
-Coordinate getY(Point point) {
+Coordonate getY(const Point& point) {
     if (point.size() > 1) return point[1];
     return 0;
 }
-Coordinate getZ(Point point) {
+Coordonate getZ(const Point& point) {
     if (point.size() > 2) return point[2];
     return 0;
 }
 
+        list[i][0] = x;
+        list[i][1] = y;
+        list[i][2] = z;
+
+void ensureDim3(Point& point) {
+    if(point.size() < 3) point.resize(3, 0);
+}
+
+void setX(Point& point, Coordonate value) {
+    ensureDim3(point);
+    point[0] = value;
+}
+
+void setY(Point& point, Coordonate value) {
+    ensureDim3(point);
+    point[1] = value;
+}
+
+void setZ(Point& point, Coordonate value) {
+    ensureDim3(point);
+    point[2] = value;
+}
 int getNbrPoints() {
     int nbrPoints;
     bool valueOK;
@@ -76,7 +98,7 @@ int getNbrPoints() {
 
         if(!valueOK or !inputOK)
             cout << "Incorrect input, please try again\n";
-        
+
     } while((!inputOK or !valueOK));
 
     return nbrPoints;
@@ -85,7 +107,7 @@ int getNbrPoints() {
 bool getPoint(int& x, int& y, int& z)   {
     cout << "Please, enter a point [X Y Z] : ";
     cin >> x >> y >> z;
- 
+
     bool inputOK  = cin.good();
     bool valuesOK = x >= 0 or y >= 0 or z >= 0;
 
@@ -94,7 +116,7 @@ bool getPoint(int& x, int& y, int& z)   {
 
     if(!valuesOK or !inputOK)
         cout << "Incorrect input, please try again\n";
-    
+
     return (inputOK and valuesOK);
 }
 
