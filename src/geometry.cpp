@@ -46,11 +46,10 @@ Map initMap(size_t height, size_t width) {
 }
 
 Space initSpace(Coordinate max_x, Coordinate max_y, Coordinate max_z) {
-    Space space {
-        initMap(max_x, max_y), // MAPCODE_XY
-        initMap(max_y, max_z), // MAPCODE_XZ
-        initMap(max_x, max_z)  // MAPCODE_YZ
-    };
+    Space space(3);
+    space[MAPCODE_XY] = initMap(max_x, max_y); // MAPCODE_XY
+    space[MAPCODE_YZ] = initMap(max_y, max_z); // MAPCODE_YZ
+    space[MAPCODE_XZ] = initMap(max_x, max_z); // MAPCODE_XZ
 
     return space;
 }
@@ -176,7 +175,11 @@ void project(Point point, Map& map, MapCode code) {
             cout << "point " << getX(point) <<  " " << getZ(point) << endl;
             break;
         case MAPCODE_YZ :
+            cerr << "fdsa\n";
+            cerr << map.size() << ' ' << getY(point) << endl;
+            cerr << map[getY(point)].size() << ' ' << getZ(point) << endl;
             map[getY(point)][getZ(point)] = EXIST;
+            cerr << "rerwe\n";
             cout << "map size " << map.size() << " " << map[0].size() << endl;
             cout << "point " << getY(point) <<  " " << getZ(point) << endl;
             break;
