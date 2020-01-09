@@ -1,11 +1,12 @@
 cmake_minimum_required(VERSION 3.10)
 # make_minimum_required(VERSION 3.5)
 
+# https://gitlab.kitware.com/cmake/community/-/wikis/doc/cmake/Useful-Variables
 project(Labo10)
 
 # file(MAKE_DIRECTORY ${directory})
 file(MAKE_DIRECTORY builds)
-set(RUNTIME_OUTPUT_DIRECTORY /builds)
+set(CMAKE_EXECUTABLE_OUTPUT_PATH /builds)
 
 ############################################################
 # Create a library
