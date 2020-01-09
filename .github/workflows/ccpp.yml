@@ -14,7 +14,22 @@ jobs:
       run: make labo10
 
     - name: run labo10
-      run: ./builds/labo10  <<< $(cat tests/inputs/inputs1.txt) <<< "\n" # to finish the process
+      run: ./builds/labo10  < tests/inputs/inputs1.txt
+
+
+  cmake:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+
+    - name: run cmake
+      run: make cmake
+
+    - name: run labo10 with inputs1
+      run: ../bin/labo10 < ../tests/inputs/inputs1.txt
+
+    - name: run labo10 with inputs2
+      run: ../bin/labo10 < ../tests/inputs/inputs2.txt
 
 #   tests:
 

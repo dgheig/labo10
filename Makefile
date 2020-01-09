@@ -18,6 +18,10 @@ TESTS = tests
 
 all: labo10 compile_tests clean
 
+cmake: CMakeLists.txt
+	mkdir cmake && cd cmake && cmake .. && make
+
+
 main: labo10 clean
 
 compile_tests: # sumLine sumDiag shuffleMatrix vectMinSum
