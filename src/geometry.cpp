@@ -60,10 +60,6 @@ Coordonate getZ(const Point& point) {
     return 0;
 }
 
-        list[i][0] = x;
-        list[i][1] = y;
-        list[i][2] = z;
-
 void ensureDim3(Point& point) {
     if(point.size() < 3) point.resize(3, 0);
 }
@@ -109,7 +105,7 @@ bool getPoint(int& x, int& y, int& z)   {
     cin >> x >> y >> z;
 
     bool inputOK  = cin.good();
-    bool valuesOK = x >= 0 or y >= 0 or z >= 0;
+    bool valuesOK = x >= 0 and y >= 0 and z >= 0;
 
     if(!inputOK) cin.clear();
     EMPTY_BUFFER;
@@ -128,10 +124,9 @@ PointList getPointList() {
         point.resize(3);
         int x, y, z;
         while(!getPoint(x, y, z));
-
-        point[0] = x;
-        point[1] = y;
-        point[2] = z;
+        setX(point, x);
+        setY(point, y);
+        setZ(point, z);
     }
     cout << endl;
     return list;
