@@ -1,17 +1,18 @@
 /*
 -----------------------------------------------------------------------------------
-Laboratoire : labo_10
-Fichier     : labo_10_comte_emmanuelle_gallay_david.cpp
-Auteur(s)   : Emmanuelle Comte et David Gallay
-Date        :
+Laboratory  : labo_10
+File        : labo_10_comte_emmanuelle_gallay_david.cpp
+Author(s)   : Emmanuelle Comte et David Gallay
+Date        : 12.01.2020
 
-But         :
-Remarque(s) :
+Purpose     : Make projections of a space and display them.
+Remark(s)   : If the user put 0 points in the point list, 
+              The program will display a space empty (just one point [0, 0, 0])
 
                 There is the github repository:
                 https://github.com/dgheig/labo10
 
-Compilateur : MinGW-g++ 6.3.0 and g++ 7.4.0
+Compiler    : MinGW-g++ 6.3.0 and g++ 7.4.0
 -----------------------------------------------------------------------------------*/
 #include <iostream>
 #include <cstdlib>
