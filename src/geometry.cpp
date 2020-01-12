@@ -19,7 +19,7 @@ Space initSpace(Coordonate max_x, Coordonate max_y, Coordonate max_z);
   * @param  [in][out] int& x
   * @param  [in][out] int& y
   * @param  [in][out] int& z
-  * @return bool True if the input is correct
+  * @return bool True if the user input is correct
   */
 bool getPoint(int& x, int& y, int& z);
 
@@ -32,7 +32,7 @@ int getNbrPoints();
 
 Map initMap(size_t height, size_t width) {
     Map map(height);
-    for (auto& line: map) {
+    for (Line& line: map) {
         line.resize(width, EMPTY);
     }
     return map;
@@ -120,7 +120,7 @@ PointList getPointList() {
     PointList list;
     int nbrPoints = getNbrPoints();
     list.resize(nbrPoints);
-    for(Point point: list) {
+    for(Point& point: list) {
         point.resize(3);
         int x, y, z;
         while(!getPoint(x, y, z));
@@ -132,17 +132,17 @@ PointList getPointList() {
     return list;
 }
 
-void displayMap(const Map& map) {
-    for(Line line: map) {
-        displayLine(line);
+void displayMap(const Map& map, char exist = 'O', char empty = '.') {
+    for(Line& line: map) {
+        displayLine(line, exist, empty);
         cout << endl;
     }
 
 }
 
-void displayLine(const Line& line) {
-    for(auto point: line) {
-        cout << (point == EXIST ? 'O': '.');
+void displayLine(const Line& line, char exist = 'O', char empty = '.') {
+    for(PointState& point: line) {
+        cout << (point == EXIST ? exist : empty);
     }
 }
 
@@ -161,7 +161,7 @@ Space getSpace(PointList list) {
 
     Space space = initSpace(max_x + 1, max_y + 1, max_z + 1);
 
-    for(const auto& point: list)
+    for(const Point& point: list)
         addPoint(point, space);
 
     return space;

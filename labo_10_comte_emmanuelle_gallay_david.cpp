@@ -27,7 +27,7 @@ int main() {
 
     Space space = getSpace(list);
 
-    for(const auto& map: space) {
+    for(const Map& map: space) {
         displayMap(map);
         cout << endl;
     }
