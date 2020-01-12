@@ -166,9 +166,10 @@ Point askValidPoint() {
 }
 
 PointList getPointList() {
-    PointList list;
+
     int nbrPoints = getNbrPoints();
-    list.resize(nbrPoints);
+    PointList list(nbrPoints);
+
     for (Point& point: list) {
         point = askValidPoint();
     }
@@ -178,7 +179,6 @@ PointList getPointList() {
 
 void displayMap(const Map& map, MapCode code, char exist, char empty) {
 
-    cout << "1" << endl;
     switch (code) {
         case MAPCODE_XY :
             cout << " Y\nX";
