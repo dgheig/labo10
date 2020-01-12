@@ -5,9 +5,9 @@ Fichier     : test_point_get.cpp
 Auteur(s)   : Emmanuelle Comte et David Gallay
 Date        : 11.01.2020
 
-But         : Example of test file for a function
+But         : test function to set point's coordonate
 Remarque(s) :
-Compilateur :
+Compilateur : MinGW-g++ 6.3.0 and g++ 7.4.0
 -----------------------------------------------------------------------------------*/
 
 #include <iostream>
