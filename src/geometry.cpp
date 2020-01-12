@@ -16,14 +16,29 @@ using namespace std;
   */
 Space initSpace(Coordonate max_x, Coordonate max_y, Coordonate max_z);
 
+
+
 /**
-  * @brief  Get a point from the user
+  * @brief  Ask the user for coordonates
   * @param  [in][out] int& x
   * @param  [in][out] int& y
   * @param  [in][out] int& z
-  * @return bool True if the user input is correct
   */
-bool getPoint(int& x, int& y, int& z);
+void getValues(int& x, int& y, int& z);
+
+/**
+  * @brief  Get a valid coordonate values from the user
+  * @param  [in][out] int& x
+  * @param  [in][out] int& y
+  * @param  [in][out] int& z
+  */
+void getValidValues(int& x, int& y, int& z);
+
+/**
+  * @brief  Get a valid point from the user
+  * @return Point Point input by the user
+  */
+Point askValidPoint();
 
 /**
   * @brief  Get the number of point the user want to set at EXIST
@@ -83,40 +98,71 @@ void setZ(Point& point, Coordonate value) {
 }
 int getNbrPoints() {
     int nbrPoints;
-    bool valueOK;
-    bool inputOK;
+    bool validInput;
+    bool cinFailed;
     do {
-        cout << "Please, enter the number of points you want : ";
-        cin  >> nbrPoints;
-        cout << endl;
+        do
+        {
+            cout << "Please, enter the number of points you want : ";
+            cin  >> nbrPoints;
+            cout << endl;
 
-        inputOK = cin.good();
-        valueOK = nbrPoints >= 0;
-        if(!inputOK) cin.clear();
-        EMPTY_BUFFER;
+            cinFailed = cin.fail();
+            if (cinFailed)
+            {
+                cin.clear();
+                cerr << "cin failed, please, try again." << endl
+                     << "make sur to input positiv value" << endl;
+            }
+            EMPTY_BUFFER;
+        } while (cinFailed);
 
-        if(!valueOK or !inputOK)
-            cout << "Incorrect input, please try again\n";
 
-    } while((!inputOK or !valueOK));
+        validInput = nbrPoints >= 0;
+
+        if (!validInput)
+            cerr << "Incorrect input, value must be positiv" << endl
+                 << "please try again"                       << endl;
+
+    } while(!validInput);
 
     return nbrPoints;
 }
 
-bool getPoint(int& x, int& y, int& z) {
-    cout << "Please, enter a point [X Y Z] : ";
-    cin >> x >> y >> z;
+void getValues(int& x, int& y, int& z) {
+    bool cinFailed;
+    do
+    {
+        cout << "Please, enter a point [X Y Z] : ";
+        cin >> x >> y >> z;
+        cinFailed = cin.fail();
+        if (cinFailed)
+        {
+            cin.clear();
+            cerr << "cin failed, please, try again." << endl
+                    << "make sur to input positiv values separated by space" << endl;
+        }
+        EMPTY_BUFFER;
+    } while (cinFailed);
+}
 
-    bool inputOK  = cin.good();
-    bool valuesOK = x >= 0 and y >= 0 and z >= 0;
+void getValidValues(int& x, int& y, int& z) {
 
-    if(!inputOK) cin.clear();
-    EMPTY_BUFFER;
+    getValues(x, y, z);
 
-    if(!valuesOK or !inputOK)
-        cout << "Incorrect input, please try again\n";
+    while (x < 0 or y < 0 or z < 0)
+    {
+        cerr << "Incorrect input, values must be positiv" << endl
+             << "please try again"                        << endl;
+        getValues(x, y, z);
+    }
+}
 
-    return (inputOK and valuesOK);
+Point askValidPoint() {
+    int x, y, z;
+    getValidValues(x, y, z);
+
+    return Point({(Coordonate)x, (Coordonate)y, (Coordonate)z});
 }
 
 PointList getPointList() {
@@ -124,19 +170,14 @@ PointList getPointList() {
     int nbrPoints = getNbrPoints();
     list.resize(nbrPoints);
     for (Point& point: list) {
-        point.resize(3);
-        int x, y, z;
-        while(!getPoint(x, y, z));
-        setX(point, x);
-        setY(point, y);
-        setZ(point, z);
+        point = askValidPoint();
     }
     cout << endl;
     return list;
 }
 
 void displayMap(const Map& map, MapCode code, char exist, char empty) {
-    
+
     cout << "1" << endl;
     switch (code) {
         case MAPCODE_XY :
@@ -149,7 +190,7 @@ void displayMap(const Map& map, MapCode code, char exist, char empty) {
             cout << " Z\nY";
             break;
     }
-    
+
     for (const Line& line: map) {
         displayLine(line, exist, empty);
         cout << endl << " ";
