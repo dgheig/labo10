@@ -135,10 +135,24 @@ PointList getPointList() {
     return list;
 }
 
-void displayMap(const Map& map, char exist, char empty) {
+void displayMap(const Map& map, MapCode code, char exist, char empty) {
+    
+    cout << "1" << endl;
+    switch (code) {
+        case MAPCODE_XY :
+            cout << " Y\nX";
+            break;
+        case MAPCODE_XZ :
+            cout << " Z\nX";
+            break;
+        case MAPCODE_YZ :
+            cout << " Z\nY";
+            break;
+    }
+    
     for (const Line& line: map) {
         displayLine(line, exist, empty);
-        cout << endl;
+        cout << endl << " ";
     }
 
 }

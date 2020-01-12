@@ -46,7 +46,7 @@ void displayLine(const Line& line, char exist = 'O', char empty = '.');
   * @param  [in] char       empty Display for a place empty
   *                               Default value '.'
   */
-void displayMap(const Map& map, char exist = 'O', char empty = '.');
+void displayMap(const Map& map, MapCode code, char exist = 'O', char empty = '.');
 
 /**
   * @brief  Create a space conatin the three projections

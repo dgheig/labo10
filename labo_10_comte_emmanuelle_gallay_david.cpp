@@ -28,10 +28,18 @@ int main() {
 
     Space space = getSpace(list);
 
-    for (const Map& map: space) {
-        displayMap(map);
-        cout << endl;
-    }
+    //for (const Map& map: space) {
+    //    displayMap(map);
+    //    cout << endl;
+    //}
+    
+    displayMap(space[MAPCODE_XY], MAPCODE_XY);
+    cout << endl;
+    displayMap(space[MAPCODE_XZ], MAPCODE_XZ);
+    cout << endl;
+    displayMap(space[MAPCODE_YZ], MAPCODE_YZ);
+    
+        
 
     cout << "Please, press <ENTER> to end the program" << endl;
     WAIT_ENTER;
