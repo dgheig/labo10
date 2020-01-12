@@ -1,10 +1,12 @@
 
 #include "geometry.h"
 #include <iostream>
+
 using namespace std;
 
 #define EMPTY_BUFFER while(getchar() != '\n')
 
+//-----------------------------------------------------------------------------------
 /**
   * @brief  Reseve the place for the projections and set all to EMPTY
   * @param  [in] Coordonate max_x The maximum Coordonate X of all the points in the space
@@ -30,6 +32,7 @@ bool getPoint(int& x, int& y, int& z);
 int getNbrPoints();
 
 
+//-----------------------------------------------------------------------------------
 Map initMap(size_t height, size_t width) {
     Map map(height);
     for (Line& line: map) {
