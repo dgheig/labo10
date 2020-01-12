@@ -36,7 +36,7 @@ PointList getPointList();
   * @param  [in] char        empty Display for a place empty
   *                                Default value '.'
   */
-void displayLine(const Line& line, char exist, char empty);
+void displayLine(const Line& line, char exist = 'O', char empty = '.');
 
 /**
   * @brief  Display a map
@@ -46,7 +46,7 @@ void displayLine(const Line& line, char exist, char empty);
   * @param  [in] char       empty Display for a place empty
   *                               Default value '.'
   */
-void displayMap(const Map& map, char exist, char empty);
+void displayMap(const Map& map, char exist = 'O', char empty = '.');
 
 /**
   * @brief  Create a space conatin the three projections

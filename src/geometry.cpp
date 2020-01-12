@@ -132,16 +132,16 @@ PointList getPointList() {
     return list;
 }
 
-void displayMap(const Map& map, char exist = 'O', char empty = '.') {
-    for(Line& line: map) {
+void displayMap(const Map& map, char exist, char empty) {
+    for(const Line& line: map) {
         displayLine(line, exist, empty);
         cout << endl;
     }
 
 }
 
-void displayLine(const Line& line, char exist = 'O', char empty = '.') {
-    for(PointState& point: line) {
+void displayLine(const Line& line, char exist, char empty) {
+    for(PointState point: line) {
         cout << (point == EXIST ? exist : empty);
     }
 }
