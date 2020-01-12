@@ -51,7 +51,7 @@ int main() {
         1, 2, 3
     );
 
-    if(exit_value == EXIT_SUCCESS) cout << "All tests where successful" << endl;
+    if(exit_value == EXIT_SUCCESS) cout << "All tests were successful" << endl;
 
     return exit_value;
 }
