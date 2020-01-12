@@ -3,7 +3,7 @@
 Laboratoire : labo_10
 Fichier     : model.cpp
 Auteur(s)   : Emmanuelle Comte et David Gallay
-Date        : 25.11.2019
+Date        : 11.01.2020
 
 But         : Example of test file for a function
 Remarque(s) :
@@ -11,6 +11,8 @@ Compilateur :
 -----------------------------------------------------------------------------------*/
 
 #include <iostream>
+#include "../src/geometry.h"
+#include "test_utility.h"
 using namespace std;
 
 int exit_value = EXIT_SUCCESS;

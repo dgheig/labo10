@@ -14,7 +14,7 @@ jobs:
       run: make labo10
 
     - name: run labo10
-      run: ./builds/labo10  < tests/inputs/inputs1.txt
+      run: ./bin/labo10  < tests/inputs/inputs1.txt
 
 
   cmake:
@@ -31,21 +31,15 @@ jobs:
     - name: run labo10 with inputs2
       run: ./bin/labo10 < tests/inputs/inputs2.txt
 
-#   tests:
+  tests:
 
-#     runs-on: ubuntu-latest
+    runs-on: ubuntu-latest
 
-#     steps:
-#     - uses: actions/checkout@master
+    steps:
+    - uses: actions/checkout@master
 
-#     - name: compile tests
-#       run: make compile_tests
+    - name: compile tests
+      run: make compile_tests
 
-#     - name: test sumLine
-#       run: ./builds/sumLine
-
-#     - name: test sumDiag
-#       run: ./builds/sumDiag
-
-#     - name: test shuffleMatrix
-#       run: ./builds/shuffleMatrix
+    - name: test test_point_get
+      run: ./bin/test_point_get

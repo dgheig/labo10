@@ -13,18 +13,18 @@ COMPILE = $(GXX) $(STD) $(FLAGS)
 
 SRC = src
 OBJ = obj
-BUILDS = builds
+BUILDS = bin
 TESTS = tests
 
-all: labo10 compile_tests clean
+all: labo10 compile_tests
 
 cmake: CMakeLists.txt
 	mkdir cmake && cd cmake && cmake .. && make
 
 
-main: labo10 clean
+main: labo10
 
-compile_tests: # sumLine sumDiag shuffleMatrix vectMinSum
+compile_tests: test_point_get
 
 clean: obj_dir
 	rm -f $(OBJ)/*
@@ -51,14 +51,5 @@ labo10: setup geometry.o labo10.o
 
 # # TESTS
 
-# sumLine: $(TESTS)/sumLine.cpp matrice.o
-# 	$(COMPILE) src/matrice.h $(OBJ)/matrice.o $(TESTS)/sumLine.cpp -o $(BUILDS)/sumLine
-
-# sumDiag: $(TESTS)/sumDiag.cpp matrice.o
-# 	$(COMPILE) src/matrice.h $(OBJ)/matrice.o $(TESTS)/sumDiag.cpp -o $(BUILDS)/sumDiag
-
-# shuffleMatrix: $(TESTS)/shuffleMatrix.cpp matrice.o
-# 	$(COMPILE) src/matrice.h $(OBJ)/matrice.o $(TESTS)/shuffleMatrix.cpp -o $(BUILDS)/shuffleMatrix
-
-# vectMinSum: $(TESTS)/vectMinSum.cpp matrice.o
-# 	$(COMPILE) src/matrice.h $(OBJ)/matrice.o $(TESTS)/vectMinSum.cpp -o $(BUILDS)/vectMinSum
+test_point_get: $(TESTS)/test_point_get.cpp geometry.o
+	$(COMPILE) src/geometry.h $(OBJ)/geometry.o $(TESTS)/test_point_get.cpp -o $(BUILDS)/test_point_get

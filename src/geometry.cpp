@@ -103,7 +103,7 @@ int getNbrPoints() {
     return nbrPoints;
 }
 
-bool getPoint(int& x, int& y, int& z)   {
+bool getPoint(int& x, int& y, int& z) {
     cout << "Please, enter a point [X Y Z] : ";
     cin >> x >> y >> z;
 
@@ -123,7 +123,7 @@ PointList getPointList() {
     PointList list;
     int nbrPoints = getNbrPoints();
     list.resize(nbrPoints);
-    for(Point& point: list) {
+    for (Point& point: list) {
         point.resize(3);
         int x, y, z;
         while(!getPoint(x, y, z));
@@ -136,7 +136,7 @@ PointList getPointList() {
 }
 
 void displayMap(const Map& map, char exist, char empty) {
-    for(const Line& line: map) {
+    for (const Line& line: map) {
         displayLine(line, exist, empty);
         cout << endl;
     }
@@ -144,7 +144,7 @@ void displayMap(const Map& map, char exist, char empty) {
 }
 
 void displayLine(const Line& line, char exist, char empty) {
-    for(PointState point: line) {
+    for (PointState point: line) {
         cout << (point == EXIST ? exist : empty);
     }
 }
@@ -164,7 +164,7 @@ Space getSpace(const PointList& list) {
 
     Space space = initSpace(max_x + 1, max_y + 1, max_z + 1);
 
-    for(const Point& point: list)
+    for (const Point& point: list)
         addPoint(space, point);
 
     return space;
