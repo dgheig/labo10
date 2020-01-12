@@ -16,8 +16,6 @@ using namespace std;
   */
 Space initSpace(Coordonate max_x, Coordonate max_y, Coordonate max_z);
 
-
-
 /**
   * @brief  Ask the user for coordonates
   * @param  [in][out] int& x
@@ -134,13 +132,13 @@ void getValues(int& x, int& y, int& z) {
     do
     {
         cout << "Please, enter a point [X Y Z] : ";
-        cin >> x >> y >> z;
+        cin  >> x >> y >> z;
         cinFailed = cin.fail();
         if (cinFailed)
         {
             cin.clear();
             cerr << "cin failed, please, try again." << endl
-                    << "make sur to input positiv values separated by space" << endl;
+                 << "make sur to input positiv values separated by space" << endl;
         }
         EMPTY_BUFFER;
     } while (cinFailed);

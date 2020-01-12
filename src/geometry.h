@@ -56,12 +56,12 @@ void displayMap(const Map& map, MapCode code, char exist = 'O', char empty = '.'
 Space getSpace(const PointList& list);
 
 /**
-  * @brief  Project a point in a map (XY, XZ or YZ)
-  * @param  [in]      PointList list
+  * @brief  Project a point  in a map (XY, XZ or YZ)
+  * @param  [in]      Point     point 
   * @param  [in][out] Map&      map  The map for the projection
   * @param  [in]      MapCode   code Code of the diection of the projection
   */
-void project(const PointList& list, Map& map, MapCode code);
+void project(const Point& point, Map& map, MapCode code);
 
 /**
   * @brief  Add a point to all of projections in space
@@ -71,7 +71,7 @@ void project(const PointList& list, Map& map, MapCode code);
 void addPoint(Space& space, Point point);
 
 /**
-  * @brief
+  * @brief  Get the projection of the map asked by the mapcode
   * @param  [in] const Space& space
   * @param  [in] MapCode      code  The code for the direction of the projection
   * @return Map The map of the projection asked
@@ -101,19 +101,22 @@ Coordonate getZ(const Point& point);
 
 /**
   * @brief  Set the Coordonate X from a point
-  * @param  [in] Point point
+  * @param  [in][out] Point      point
+  * @param  [in]      Coordonate value 
   */
 void setX(Point& point, Coordonate value);
 
 /**
-  * @brief  Get the Coordonate Y from a point
-  * @param  [in] Point point
+  * @brief  Set the Coordonate Y from a point
+  * @param  [in][out] Point      point
+  * @param  [in]      Coordonate value 
   */
 void setY(Point& point, Coordonate value);
 
 /**
-  * @brief  Get the Coordonate Z from a point
-  * @param  [in] Point point
+  * @brief  Set the Coordonate Z from a point
+  * @param  [in][out] Point      point
+  * @param  [in]      Coordonate value 
   */
 void setZ(Point& point, Coordonate value);
 
