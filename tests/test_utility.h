@@ -4,9 +4,22 @@
 #include <iostream>
 #include "../src/geometry.h"
 
+bool comparePoint(const Point& point1, const Point& point2);
 bool compareLine(const Line& line1, const Line& line2);
 bool compareMap(const Map& map1, const Map& map2);
 bool compareSpace(const Space& space1, const Space& space2);
+
+void displayPoint(const Point& point);
+void displayPointList(const PointList& list);
+
+bool comparePoint(const Point& point1, const Point& point2) {
+    if (
+        getX(point1) == getX(point2) and
+        getY(point1) == getY(point2) and
+        getZ(point1) == getZ(point2)
+    ) return true;
+    return false;
+}
 
 bool compareLine(const Line& line1, const Line& line2) {
     if (line1.size() != line2.size()) return false;
@@ -32,26 +45,17 @@ bool compareSpace(const Space& space1, const Space& space2) {
     return true;
 }
 
-void displayPointList(const PointList& list) {
-    for (const Point& point: list) {
-        std::cerr << '('
-                  << getX(point) << ' '
-                  << getY(point) << ' '
-                  << getZ(point) << ')' << std::endl;
-    }
+void displayPoint(const Point& point) {
+    std::cout << '('
+              << getX(point) << ' '
+              << getY(point) << ' '
+              << getZ(point) << ')' << std::endl;
 }
 
-// Space getSpace(const PointList& list);
-// void project(const PointList& list, Map& map, MapCode code);
-// void addPoint(Space& space, Point point);
-// Map getProjection(const Space& space, MapCode code);
-
-// Coordonate getX(const Point& point);
-// Coordonate getY(const Point& point);
-// Coordonate getZ(const Point& point);
-
-// void setX(Point& point, Coordonate value);
-// void setY(Point& point, Coordonate value);
-// void setZ(Point& point, Coordonate value);
+void displayPointList(const PointList& list) {
+    for (const Point& point: list) {
+        displayPoint(point);
+    }
+}
 
 #endif // TEST_UTILITY_H

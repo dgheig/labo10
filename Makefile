@@ -24,7 +24,7 @@ cmake: CMakeLists.txt
 
 main: labo10
 
-compile_tests: test_point_get
+compile_tests: test_point_get test_point_set
 
 clean: obj_dir
 	rm -f $(OBJ)/*
@@ -53,3 +53,6 @@ labo10: setup geometry.o labo10.o
 
 test_point_get: $(TESTS)/test_point_get.cpp geometry.o
 	$(COMPILE) src/geometry.h $(OBJ)/geometry.o $(TESTS)/test_point_get.cpp -o $(BUILDS)/test_point_get
+
+test_point_set: $(TESTS)/test_point_set.cpp geometry.o
+	$(COMPILE) src/geometry.h $(OBJ)/geometry.o $(TESTS)/test_point_set.cpp -o $(BUILDS)/test_point_set

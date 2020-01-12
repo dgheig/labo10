@@ -43,3 +43,6 @@ jobs:
 
     - name: test test_point_get
       run: ./bin/test_point_get
+
+    - name: test test_point_set
+      run: ./bin/test_point_set
