@@ -150,7 +150,7 @@ void displayLine(const Line& line, char exist, char empty) {
 }
 
 
-Space getSpace(PointList list) {
+Space getSpace(const PointList& list) {
 
     size_t max_x = 0;
     size_t max_y = 0;
@@ -165,12 +165,12 @@ Space getSpace(PointList list) {
     Space space = initSpace(max_x + 1, max_y + 1, max_z + 1);
 
     for(const Point& point: list)
-        addPoint(point, space);
+        addPoint(space, point);
 
     return space;
 }
 
-void project(Point point, Map& map, MapCode code) {
+void project(const Point& point, Map& map, MapCode code) {
     switch (code) {
         case MAPCODE_XY :
             map[getX(point)][getY(point)] = EXIST;
@@ -184,7 +184,7 @@ void project(Point point, Map& map, MapCode code) {
     }
 }
 
-void addPoint(Point point, Space& space) {
+void addPoint(Space& space, Point point) {
     project(point, space[MAPCODE_XY], MAPCODE_XY);
     project(point, space[MAPCODE_XZ], MAPCODE_XZ);
     project(point, space[MAPCODE_YZ], MAPCODE_YZ);

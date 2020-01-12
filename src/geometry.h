@@ -30,9 +30,9 @@ PointList getPointList();
 
 /**
   * @brief  Display a line
-  * @param  [in] const Line& line 
+  * @param  [in] const Line& line
   * @param  [in] char        exist Display for a point
-  *                                Default value 'O' 
+  *                                Default value 'O'
   * @param  [in] char        empty Display for a place empty
   *                                Default value '.'
   */
@@ -42,7 +42,7 @@ void displayLine(const Line& line, char exist = 'O', char empty = '.');
   * @brief  Display a map
   * @param  [in] const Map& map
   * @param  [in] char       exist Display for a point
-  *                               Default value 'O' 
+  *                               Default value 'O'
   * @param  [in] char       empty Display for a place empty
   *                               Default value '.'
   */
@@ -53,7 +53,7 @@ void displayMap(const Map& map, char exist = 'O', char empty = '.');
   * @param  [in] PointList list The list of the points in the space
   * @return Space Contain the three projections
   */
-Space getSpace(PointList list);
+Space getSpace(const PointList& list);
 
 /**
   * @brief  Project a point in a map (XY, XZ or YZ)
@@ -61,14 +61,15 @@ Space getSpace(PointList list);
   * @param  [in][out] Map&      map  The map for the projection
   * @param  [in]      MapCode   code Code of the diection of the projection
   */
-void project(PointList list, Map& map, MapCode code);
+void project(const PointList& list, Map& map, MapCode code);
 
 /**
   * @brief  Add a point to all of projections in space
   * @param  [in]      PointList list
   * @param  [in][out] Space&    space The space where the maps projections are saved
   */
-void addPoint(Point point, Space& space);
+void addPoint(Space& space, Point point);
+
 /**
   * @brief
   * @param  [in] const Space& space
